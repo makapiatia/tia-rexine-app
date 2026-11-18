@@ -409,21 +409,18 @@ body {
   display: grid;
   place-items: center;
   overflow: hidden;
-  border-radius: 8px;
+  border: 1px solid rgba(243, 240, 232, 0.32);
+  border-radius: 16px;
+  background: transparent;
   backdrop-filter: blur(9px);
-  box-shadow: 0 0 30px rgba(20, 25, 32, 0.22);
+  -webkit-backdrop-filter: blur(9px);
+  box-shadow: 0 0 6px rgba(243, 240, 232, 0.18), inset 0 0 6px rgba(243, 240, 232, 0.12);
+  transition: border-color 250ms ease, box-shadow 250ms ease;
 }
 
-.project-art.spa {
-  background: rgba(69, 68, 139, 0.24);
-  background-image: linear-gradient(135deg, rgba(255,255,255,.1), transparent 50%), linear-gradient(0deg, rgba(28,24,61,.16), transparent 55%);
-  box-shadow: 0 0 46px rgba(116, 113, 188, 0.36);
-}
-
-.project-art.space {
-  background: rgba(233, 221, 201, 0.22);
-  background-image: linear-gradient(135deg, rgba(255,255,255,.35), transparent 56%), linear-gradient(0deg, rgba(120,90,64,.08), transparent 55%);
-  box-shadow: 0 0 46px rgba(233, 221, 201, 0.3);
+.dark-project-link:hover .project-art {
+  border-color: rgba(243, 240, 232, 0.5);
+  box-shadow: 0 0 10px rgba(243, 240, 232, 0.26), inset 0 0 8px rgba(243, 240, 232, 0.16);
 }
 
 .project-logo {
