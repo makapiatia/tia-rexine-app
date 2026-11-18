@@ -74,13 +74,6 @@ export default function Home() {
         </div>
       </section>
 
-      <Image
-        className="trex-corner-mark"
-        src="/trex-icon.png"
-        alt="TREX"
-        width={64}
-        height={64}
-      />
     </main>
   );
 }

@@ -29,10 +29,26 @@ const workSans = localFont({
 
 export const metadata: Metadata = {
   title: "Tia Rexine | Full Stack Software Engineer",
-  description:
-    "Full stack software engineer building thoughtful, useful websites for people doing meaningful work. Selected projects by Tia Rexine.",
+  description: "Tia Rexine | Full Stack Software Engineer",
   metadataBase: new URL("https://tiarexine.com"),
-  icons: { icon: "/trex-icon.png" },
+  icons: {
+    icon: "/trex-icon.png",
+    shortcut: "/trex-icon.png",
+    apple: "/trex-icon.png",
+  },
+  openGraph: {
+    type: "website",
+    url: "https://tiarexine.com",
+    title: "Tia Rexine | Full Stack Software Engineer",
+    description: "Tia Rexine | Full Stack Software Engineer",
+    images: [{ url: "/trex-icon.png", width: 256, height: 256, alt: "Tia Rexine" }],
+  },
+  twitter: {
+    card: "summary",
+    title: "Tia Rexine | Full Stack Software Engineer",
+    description: "Tia Rexine | Full Stack Software Engineer",
+    images: ["/trex-icon.png"],
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

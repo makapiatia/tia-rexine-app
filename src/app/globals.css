@@ -316,18 +316,6 @@ body {
   stroke-width: 1.8;
 }
 
-.trex-corner-mark {
-  position: fixed;
-  right: 24px;
-  bottom: 20px;
-  z-index: 2;
-  width: 58px;
-  height: 58px;
-  object-fit: contain;
-  filter: invert(1) drop-shadow(0 1px 8px rgba(0, 0, 0, 0.46));
-  opacity: 0.86;
-}
-
 .dark-hero {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -499,13 +487,6 @@ body {
     grid-template-columns: 1fr;
     column-gap: 0;
     row-gap: 16px;
-  }
-
-  .trex-corner-mark {
-    right: 12px;
-    bottom: 12px;
-    width: 42px;
-    height: 42px;
   }
 
   .dark-project-link {
