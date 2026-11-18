@@ -1,69 +1,86 @@
 import Image from "next/image";
+import { Mail } from "lucide-react";
+import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
+
+function BrandIcon({ icon }: { icon: typeof faGithub | typeof faLinkedinIn }) {
+  const [width, height, , , path] = icon.icon;
+
+  return (
+    <svg aria-hidden="true" fill="currentColor" viewBox={`0 0 ${width} ${height}`}>
+      {Array.isArray(path)
+        ? path.map((segment, index) => <path d={segment} key={index} />)
+        : <path d={path} />}
+    </svg>
+  );
+}
+
+const projects = [
+  {
+    name: "Rexine Spa Care",
+    url: "https://www.rexinespacare.com/",
+    logo: "/rexine-spa-logo.png",
+    action: "Explore spa care",
+    theme: "spa",
+  },
+  {
+    name: "Free Space Therapy",
+    url: "https://www.freespace-therapy.com/",
+    logo: "/free-space-logo.svg",
+    action: "Visit Free Space",
+    theme: "space",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="dark-shell" id="top">
+      <section className="dark-hero" aria-labelledby="hero-title">
+        <div className="dark-identity">
+          <h1 id="hero-title">Tia Rexine</h1>
+          <p>Full Stack Software Engineer</p>
+          <div className="contact-links" aria-label="Contact and social profiles">
+            <a href="mailto:tiarexine@gmail.com" aria-label="Email Tia">
+              <Mail aria-hidden="true" />
+              <span>Email me</span>
+            </a>
+            <a href="https://www.linkedin.com/in/tia-rexine-781528b6" target="_blank" rel="noreferrer">
+              <BrandIcon icon={faLinkedinIn} />
+              <span>LinkedIn</span>
+            </a>
+            <a href="https://github.com/makapiatia" target="_blank" rel="noreferrer">
+              <BrandIcon icon={faGithub} />
+              <span>GitHub</span>
+            </a>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="dark-projects" id="work">
+          {projects.map((project) => (
+            <a
+              className={`dark-project-link ${project.theme}`}
+              href={project.url}
+              target="_blank"
+              rel="noreferrer"
+              key={project.name}
+              aria-label={`Visit ${project.name}`}
+            >
+              <span className={`project-art ${project.theme}`}>
+                <Image src={project.logo} alt="" width={180} height={140} className="project-logo" />
+              </span>
+              <span className="project-name">{project.name}</span>
+              <span className="project-action">{project.action}</span>
+            </a>
+          ))}
         </div>
-      </main>
-    </div>
+      </section>
+
+      <Image
+        className="trex-corner-mark"
+        src="/trex-icon.png"
+        alt="TREX"
+        width={64}
+        height={64}
+      />
+    </main>
   );
 }
