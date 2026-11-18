@@ -552,9 +552,93 @@ body {
   }
 }
 
+.unlock-shell {
+  place-items: center;
+  padding: 24px 16px;
+}
+
+.unlock-card {
+  width: min(380px, 100%);
+  display: grid;
+  gap: 12px;
+  padding: 32px 28px;
+  border: 1px solid rgba(243, 240, 232, 0.32);
+  border-radius: 16px;
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+  box-shadow: 0 0 6px rgba(243, 240, 232, 0.18), inset 0 0 6px rgba(243, 240, 232, 0.12);
+  text-align: center;
+  animation: rise-in 700ms both;
+}
+
+.unlock-card h1 {
+  margin: 0;
+  font-family: var(--font-diamond-grotesk), sans-serif;
+  font-size: 34px;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.unlock-card > p {
+  margin: 0 0 8px;
+  color: rgba(243, 240, 232, 0.78);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.unlock-form {
+  display: grid;
+  gap: 10px;
+}
+
+.unlock-form input,
+.unlock-form button {
+  height: 44px;
+  border-radius: 10px;
+  font: inherit;
+  font-size: 14px;
+}
+
+.unlock-form input {
+  padding: 0 14px;
+  border: 1px solid rgba(243, 240, 232, 0.32);
+  background: rgba(7, 14, 17, 0.28);
+  color: #f3f0e8;
+}
+
+.unlock-form input::placeholder { color: rgba(243, 240, 232, 0.55); }
+
+.unlock-form input:focus-visible,
+.unlock-form button:focus-visible {
+  outline: 2px solid rgba(243, 240, 232, 0.8);
+  outline-offset: 2px;
+}
+
+.unlock-form input[aria-invalid="true"] { border-color: #f0a08e; }
+
+.unlock-form button {
+  border: 0;
+  background: #f3f0e8;
+  color: #0b1114;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: opacity 200ms ease;
+}
+
+.unlock-form button:disabled { opacity: 0.6; cursor: progress; }
+
+.unlock-error {
+  min-height: 1.2em;
+  margin: 0;
+  color: #f6b4a4;
+  font-size: 12px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .dark-projects,
-  .dark-identity {
+  .dark-identity,
+  .unlock-card {
     animation: none;
   }
 }
