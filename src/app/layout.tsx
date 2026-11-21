@@ -1,29 +1,24 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Caveat, Geist } from "next/font/google";
 import "./globals.css";
+import "./site.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const caveat = Caveat({
+  variable: "--font-hand",
   subsets: ["latin"],
+  weight: ["500", "600"],
 });
 
 const diamondGrotesk = localFont({
   src: "../../public/fonts/DiamondGrotesk-VF.ttf",
   variable: "--font-diamond-grotesk",
   weight: "100 900",
-  display: "swap",
-});
-
-const workSans = localFont({
-  src: "../../public/fonts/Work Sans/WorkSans-SemiBold.ttf",
-  variable: "--font-work-sans",
-  weight: "600",
   display: "swap",
 });
 
@@ -55,7 +50,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${diamondGrotesk.variable} ${workSans.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${caveat.variable} ${diamondGrotesk.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
