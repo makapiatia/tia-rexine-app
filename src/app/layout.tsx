@@ -22,27 +22,25 @@ const diamondGrotesk = localFont({
   display: "swap",
 });
 
+const title = "Tia Rexine | Full Stack Software Engineer";
+const description =
+  "Full stack software engineer in the Sonoran desert, building calm, easy-to-use web apps. Also a painter, ceramicist, cat mom and small business owner.";
+
 export const metadata: Metadata = {
-  title: "Tia Rexine | Full Stack Software Engineer",
-  description: "Tia Rexine | Full Stack Software Engineer",
+  title,
+  description,
   metadataBase: new URL("https://tiarexine.com"),
-  icons: {
-    icon: "/trex-icon.png",
-    shortcut: "/trex-icon.png",
-    apple: "/trex-icon.png",
-  },
   openGraph: {
     type: "website",
     url: "https://tiarexine.com",
-    title: "Tia Rexine | Full Stack Software Engineer",
-    description: "Tia Rexine | Full Stack Software Engineer",
-    images: [{ url: "/trex-icon.png", width: 256, height: 256, alt: "Tia Rexine" }],
+    siteName: "Tia Rexine",
+    title,
+    description,
   },
   twitter: {
-    card: "summary",
-    title: "Tia Rexine | Full Stack Software Engineer",
-    description: "Tia Rexine | Full Stack Software Engineer",
-    images: ["/trex-icon.png"],
+    card: "summary_large_image",
+    title,
+    description,
   },
 };
 
