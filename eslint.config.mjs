@@ -5,6 +5,11 @@ import nextTs from "eslint-config-next/typescript";
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
+  {
+    rules: {
+      "max-len": ["error", { code: 120, ignoreUrls: true }],
+    },
+  },
 
   globalIgnores([
 

@@ -1,7 +1,5 @@
-"use client";
-
-import { MotionConfig, type Variants } from "motion/react";
-import type { PointerEvent, ReactNode } from "react";
+import type { Variants } from "motion/react";
+import type { PointerEvent } from "react";
 
 export const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -27,7 +25,13 @@ export const write: Variants = {
 
 export const letter: Variants = {
   hidden: { opacity: 0, y: 36, rotate: 8, filter: "blur(6px)" },
-  show: { opacity: 1, y: 0, rotate: 0, filter: "blur(0px)", transition: { type: "spring", stiffness: 260, damping: 18 } },
+  show: {
+    opacity: 1,
+    y: 0,
+    rotate: 0,
+    filter: "blur(0px)",
+    transition: { type: "spring", stiffness: 260, damping: 18 },
+  },
 };
 
 export const chip: Variants = {
@@ -56,8 +60,4 @@ export function glareHandlers() {
       target.style.setProperty("--glare-y", `${((event.clientY - rect.top) / rect.height) * 100}%`);
     },
   };
-}
-
-export function MotionProvider({ children }: { children: ReactNode }) {
-  return <MotionConfig reducedMotion="user">{children}</MotionConfig>;
 }

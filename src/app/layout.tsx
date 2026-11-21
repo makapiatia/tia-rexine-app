@@ -24,7 +24,8 @@ const diamondGrotesk = localFont({
 
 const title = "Tia Rexine | Full Stack Software Engineer";
 const description =
-  "Full stack software engineer in the Sonoran desert, building calm, easy-to-use web apps. Also a painter, ceramicist, cat mom and small business owner.";
+  "Full stack software engineer in the Sonoran desert, building calm, easy-to-use web apps. Also a " +
+  "painter, ceramicist, cat mom and small business owner.";
 
 export const metadata: Metadata = {
   title,
