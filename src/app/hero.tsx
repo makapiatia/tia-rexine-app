@@ -19,18 +19,20 @@ const letters: Variants = {
 
 export function ContactLinks() {
   return (
-    <div className="contact-links" aria-label="Contact and social profiles">
-      <a href="mailto:tiarexine@gmail.com" aria-label="Email Tia">
+    <div className="contact-links" role="group" aria-label="Contact and social profiles">
+      <a href="mailto:tiarexine@gmail.com">
         <Mail aria-hidden="true" />
         <span>Email me</span>
       </a>
       <a href="https://www.linkedin.com/in/tia-rexine-781528b6" target="_blank" rel="noreferrer">
         <BrandIcon icon={faLinkedinIn} />
         <span>LinkedIn</span>
+        <span className="sr-only"> (opens in a new tab)</span>
       </a>
       <a href="https://github.com/makapiatia" target="_blank" rel="noreferrer">
         <BrandIcon icon={faGithub} />
         <span>GitHub</span>
+        <span className="sr-only"> (opens in a new tab)</span>
       </a>
     </div>
   );
@@ -76,19 +78,26 @@ export function Hero() {
           <Cactus className="sway" />
         </motion.p>
         <AnimatedName text="Tia Rexine" />
-        <motion.p className="hero-role" variants={rise}>
-          Full Stack Software Engineer
-        </motion.p>
         <motion.p className="hero-tagline" variants={rise}>
-          I build software for a living. The rest of the time I&apos;m making art and admiring desert
-          sunsets.
+          I&apos;m a full stack software engineer who designs and builds for the web. Away from the
+          screen, I make time for art projects and admiring desert sunsets.
         </motion.p>
         <motion.div variants={rise}>
           <ContactLinks />
         </motion.div>
       </motion.div>
 
-      <motion.a className="scroll-cue" href="#about" variants={rise}>
+      <motion.a
+        className="scroll-cue"
+        href="#about"
+        variants={rise}
+        onClick={(event) => {
+          const target = document.getElementById("about");
+          if (!target) return;
+          event.preventDefault();
+          target.scrollIntoView({ behavior: "smooth" });
+        }}
+      >
         <TrexBadge className="hero-trex" />
         <span>a bit about me</span>
         <ChevronDown aria-hidden="true" />

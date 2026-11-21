@@ -2,6 +2,7 @@
 
 import Image, { type StaticImageData } from "next/image";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { Droplet } from "lucide-react";
 import { motion, type PanInfo, type Variants } from "motion/react";
 import { group, inView, rise, write } from "./motion-presets";
 import burro from "../../public/stickers/burro.webp";
@@ -17,6 +18,7 @@ type Sticker = {
   image: StaticImageData;
   alt: string;
   label: string;
+  labelIcon?: "droplet";
 
   x: number;
   y: number;
@@ -28,16 +30,16 @@ type Sticker = {
 
 const stickers: Sticker[] = [
   { image: scallopedBowl, alt: "Scalloped ceramic bowl in blue, green and amber glazes", label: "glaze tests", x: 1, y: 6, width: 23, rotate: -6 },
-  { image: catGrey, alt: "Grey cat with green eyes looking up at the camera", label: "resident drooler", x: 26, y: 0, width: 23, rotate: 4 },
+  { image: catGrey, alt: "Grey cat with green eyes looking up at the camera", label: "resident drooler", labelIcon: "droplet", x: 26, y: 0, width: 23, rotate: 4 },
   { image: potteryShelf, alt: "A shelf of glazed ceramic bowls and cups", label: "cups for days", x: 52, y: 8, width: 30, rotate: -3 },
-  { image: cobaltVase, alt: "Cobalt blue ceramic lamp base with a paper shade", label: "made the paper\nshade too!", x: 85, y: 0, width: 13, rotate: 6, mobileWidth: 52 },
-  { image: catCurled, alt: "Spotted cat curled up asleep in a fluffy bed", label: "nap champion", x: 4, y: 52, width: 21, rotate: 8 },
-  { image: burro, alt: "Wild burro walking through the desert", label: "wild burro sighting!", x: 29, y: 60, width: 26, rotate: -4 },
-  { image: catTabby, alt: "Tabby cat standing on a couch", label: "the supervisor", x: 59, y: 42, width: 15, rotate: -7, mobileWidth: 68 },
-  { image: tarantula, alt: "Desert tarantula crawling over gravel", label: "friendly neighbor", x: 77, y: 56, width: 21, rotate: 10 },
+  { image: cobaltVase, alt: "Cobalt blue ceramic lamp base with a paper shade", label: "lighting is a passion", x: 85, y: 0, width: 13, rotate: 6, mobileWidth: 52 },
+  { image: catCurled, alt: "Spotted cat curled up asleep in a fluffy bed", label: "our dreamer, and our alarm clock", x: 4, y: 52, width: 21, rotate: 8 },
+  { image: burro, alt: "Wild burro walking through the desert", label: "wild burro crossing", x: 29, y: 60, width: 26, rotate: -4 },
+  { image: catTabby, alt: "Tabby cat standing on a couch", label: "mr. united nations", x: 59, y: 42, width: 15, rotate: -7, mobileWidth: 68 },
+  { image: tarantula, alt: "Desert tarantula crawling over gravel", label: "our friend Francisco", x: 77, y: 56, width: 21, rotate: 10 },
 ];
 
-const GRABBING_CURSOR = 'url("/cursors/grabbing.png") 16 14, grabbing';
+const GRABBING_CURSOR = 'url("/cursors/grabbing.png") 13 1, grabbing';
 
 const slap: Variants = {
   hidden: (rotate: number) => ({ opacity: 0, scale: 1.6, rotate: rotate - 18, y: -30 }),
@@ -74,7 +76,7 @@ export function Stickers() {
   const draggable = useFinePointer();
 
   useEffect(() => {
-    pageRef.current = boardRef.current?.closest("main") ?? null;
+    pageRef.current = boardRef.current?.closest(".dark-shell") ?? null;
   }, []);
 
   const autoScroll = (_event: PointerEvent | MouseEvent | TouchEvent, info: PanInfo) => {
@@ -89,9 +91,9 @@ export function Stickers() {
 
   return (
     <motion.section className="page-section" aria-labelledby="stickers-title" variants={group} {...inView}>
-      <motion.header className="casual-heading" variants={group}>
+      <motion.div className="casual-heading" variants={group}>
         <motion.p className="hand-note" variants={write}>
-          a few of my favorite things
+          a few of my favorites
         </motion.p>
         <motion.h2 id="stickers-title" variants={rise}>
           Things I love
@@ -99,7 +101,7 @@ export function Stickers() {
         <motion.p className="hand-note sticker-hint" variants={write}>
           (go ahead, drag them anywhere)
         </motion.p>
-      </motion.header>
+      </motion.div>
 
       <motion.div className="sticker-board" ref={boardRef} variants={board}>
         {stickers.map((sticker, index) => (
@@ -132,7 +134,10 @@ export function Stickers() {
               sizes="(max-width: 767px) 45vw, 280px"
               draggable={false}
             />
-            <figcaption className="hand-note">{sticker.label}</figcaption>
+            <figcaption className="hand-note">
+              {sticker.label}
+              {sticker.labelIcon === "droplet" ? <Droplet aria-hidden="true" className="caption-icon" /> : null}
+            </figcaption>
           </motion.figure>
         ))}
       </motion.div>

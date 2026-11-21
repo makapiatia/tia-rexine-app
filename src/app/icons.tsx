@@ -46,3 +46,13 @@ export function Burro(props: SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+
+export function SmileyFace(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...lineIcon} strokeWidth={1.8} {...props}>
+      <path d="M5 7.5c1-2 3.4-2 4.4 0" />
+      <path d="M14.6 7.5c1-2 3.4-2 4.4 0" />
+      <path d="M6.5 15c1.4 2.4 3.3 3.6 5.5 3.6s4.1-1.2 5.5-3.6" />
+    </svg>
+  );
+}
