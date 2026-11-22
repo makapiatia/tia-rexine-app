@@ -8,7 +8,7 @@ import potteryShelf from "../../../public/stickers/pottery-shelf.webp";
 import scallopedBowl from "../../../public/stickers/scalloped-bowl.webp";
 import tarantula from "../../../public/stickers/tarantula.webp";
 
-export type Sticker = {
+type Sticker = {
   image: StaticImageData;
   alt: string;
   label: string;

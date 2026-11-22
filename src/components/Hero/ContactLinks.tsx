@@ -4,7 +4,7 @@ import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { BrandIcon } from "@/components/shared/icons";
 
 const link = classNames(
-  "inline-flex items-center transition-colors duration-180 hover:text-white",
+  "-my-1 inline-flex items-center py-1 transition-colors duration-180 hover:text-white",
   "gap-1.25 text-[11px] min-[401px]:gap-1.5 min-[401px]:text-[12px]",
   "[&_svg]:size-4 [&_svg]:stroke-[1.8]",
 );

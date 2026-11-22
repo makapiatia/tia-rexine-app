@@ -19,7 +19,7 @@ export function SectionHeading({
 }) {
   return (
     <motion.div className="grid justify-items-center gap-1" variants={group}>
-      <motion.p className={classNames(handNote, "gap-2 text-[20px] md:text-[24px]")} variants={write}>
+      <motion.p className={classNames(handNote, "gap-2 text-cream text-[20px] md:text-[24px]")} variants={write}>
         {kicker}
       </motion.p>
       <motion.h2

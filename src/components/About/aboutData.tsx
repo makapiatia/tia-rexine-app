@@ -5,7 +5,7 @@ import { Burro } from "@/components/shared/icons";
 
 type Icon = ComponentType<SVGProps<SVGSVGElement>>;
 
-export type AboutLink = { href: string; label: string; logo: string; logoAlt: string };
+type AboutLink = { href: string; label: string; logo: string; logoAlt: string };
 
 export type AboutBlock = {
   icons: Icon[];

@@ -57,7 +57,7 @@ export function AboutCard({ block }: { block: AboutBlock }) {
             ))}
           </motion.ul>
           <motion.p
-            className={classNames(handNote, "mt-1 -rotate-2 gap-2 leading-[1.1] text-[20px] md:text-[22px]")}
+            className={classNames(handNote, "mt-1 -rotate-2 gap-2 text-cream leading-[1.1] text-[20px] md:text-[22px]")}
             variants={write}
           >
             even the tarantulas{" "}

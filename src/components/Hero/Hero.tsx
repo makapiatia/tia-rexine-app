@@ -33,7 +33,7 @@ export function Hero() {
         <motion.p
           className={classNames(
             handNote,
-            "mb-0.5 gap-1.5 text-[20px] md:justify-start md:gap-2 md:text-[26px]",
+            "text-[#fff3e2] mb-0.5 gap-1.5 text-[20px] md:justify-start md:gap-2 md:text-[26px]",
             "[&_svg]:size-4.5 [&_svg]:flex-none md:[&_svg]:size-5.5",
           )}
           variants={write}
@@ -45,7 +45,7 @@ export function Hero() {
         <AnimatedName text="Tia Rexine" />
         <motion.p
           className={classNames(
-            "mb-1 max-w-110 leading-[1.4] text-sand/92 [text-shadow:0_1px_8px_rgb(0_0_0/35%)]",
+            "mb-1 max-w-110 leading-[1.4] text-white [text-shadow:0_1px_8px_rgb(0_0_0/35%)]",
             "-mt-1.25 text-[13.5px] md:-mt-2.25 md:text-[15px]",
           )}
           variants={rise}

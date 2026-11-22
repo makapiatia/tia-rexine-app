@@ -1,7 +1,7 @@
 import classNames from "classnames";
 
 export const handNoteText = classNames(
-  "font-script font-semibold leading-[1.1] text-cream",
+  "font-script font-semibold leading-[1.1]",
   "[text-shadow:0_1px_10px_rgb(0_0_0/35%)]",
 );
 

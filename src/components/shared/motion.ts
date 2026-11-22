@@ -1,7 +1,7 @@
 import type { Variants } from "motion/react";
 import type { PointerEvent } from "react";
 
-export const ease = [0.22, 1, 0.36, 1] as const;
+const ease = [0.22, 1, 0.36, 1] as const;
 
 export const group: Variants = {
   hidden: {},

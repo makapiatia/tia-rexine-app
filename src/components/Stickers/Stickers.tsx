@@ -19,7 +19,7 @@ const stickerClass = classNames(
 
 const captionClass = classNames(
   handNoteText,
-  "mt-0.5 block text-center leading-[1.05] text-balance",
+  "mt-0.5 block text-center text-cream leading-[1.05] text-balance",
   "text-[18px] whitespace-normal",
   "collage:mx-[-35%] collage:w-[170%] collage:text-[21px] collage:whitespace-pre-line",
 );
@@ -70,7 +70,7 @@ export function Stickers() {
     >
       <SectionHeading kicker="a few of my favorites" title="Things I love" id="stickers-title">
         <motion.p
-          className={classNames(handNoteText, "hidden items-center text-[19px] opacity-80 fine:inline-flex")}
+          className={classNames(handNoteText, "hidden items-center text-cream text-[19px] opacity-80 fine:inline-flex")}
           variants={write}
         >
           (go ahead, drag them anywhere)
