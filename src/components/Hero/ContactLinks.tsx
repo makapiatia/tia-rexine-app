@@ -1,5 +1,6 @@
 import classNames from "classnames";
-import { Mail } from "lucide-react";
+import Link from "next/link";
+import { FileText, Mail } from "lucide-react";
 import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { BrandIcon } from "@/components/shared/icons";
 
@@ -34,6 +35,10 @@ export function ContactLinks({ className }: { className?: string }) {
         <span>GitHub</span>
         <span className="sr-only"> (opens in a new tab)</span>
       </a>
+      <Link className={link} href="/resume">
+        <FileText aria-hidden="true" />
+        <span>Resume</span>
+      </Link>
     </div>
   );
 }

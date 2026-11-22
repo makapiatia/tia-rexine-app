@@ -1,8 +1,9 @@
 # Tia Rexine — Portfolio
 
 The personal site of Tia Rexine, a full stack software engineer in the Sonoran desert who designs and builds for the
-web. It's a single, scrolling page: a sunset hero, a few cards about me, the sites I've built, a board of draggable
-photo stickers, and a way to say hello.
+web. The home page is a single scroll: a sunset hero, a few cards about me, the sites I've built, a board of draggable
+photo stickers, and a way to say hello. A separate [resume page](https://tiarexine.com/resume) puts my experience and
+skills in the same desert style.
 
 **Live site:** [tiarexine.com](https://tiarexine.com)
 
@@ -32,12 +33,12 @@ The site is built and tested to meet **WCAG 2.2 Level AA**.
 
 **How it was tested**
 
-- [axe-core](https://github.com/dequelabs/axe-core) against WCAG 2.0, 2.1 and 2.2 A/AA plus best practices, at
-  desktop, tablet and mobile widths: **zero violations**.
+- [axe-core](https://github.com/dequelabs/axe-core) against WCAG 2.0, 2.1 and 2.2 A/AA plus best practices, on
+  both the home page and the resume, at desktop, tablet, mobile and 320px widths: **zero violations**.
 - **Text contrast** measured against the actual pixels behind each text style (the sky and the cards), at three
-  screen sizes: all 23 text styles pass.
-- **Keyboard:** a full walk of all 14 interactive elements, plus checks for zoom, reflow, text spacing and target
-  size.
+  screen sizes: all 23 text styles on the home page and all 39 on the resume pass.
+- **Keyboard:** a full walk of every interactive element (16 on the home page, 13 on the resume), plus checks for
+  zoom, reflow, text spacing and target size.
 
 **What's in place, and the problems it solves**
 
@@ -47,7 +48,7 @@ The site is built and tested to meet **WCAG 2.2 Level AA**.
     mobile overlay is subtly deeper behind the text. No band, box or blur covers the sky.
   - **Result:** the hero reaches 4.1–8.1:1, depending on the element and screen size.
 - **Screen readers:**
-  - One `h1` and a clean `h2`/`h3` outline, a `main` landmark, a labeled `footer`, and every section labeled by
+  - One `h1` per page and a clean `h2`/`h3` outline, a `main` landmark, a labeled `footer`, and every section labeled by
     its heading.
   - My name is hand-lettered artwork, so the `h1` carries the text "Tia Rexine" for screen readers and search engines.
     The image itself is marked decorative. As a logotype, it's exempt from the images-of-text rule.
@@ -77,8 +78,8 @@ The site is built and tested to meet **WCAG 2.2 Level AA**.
 | [Tailwind CSS](https://tailwindcss.com) | 4.3 | Styling. Almost every style is an inline utility class; `globals.css` holds the design tokens. |
 | `@tailwindcss/turbopack` | 4.3 | Runs Tailwind inside Next's Turbopack bundler (configured in `next.config.ts`). |
 | [classnames](https://github.com/JedWatson/classnames) | 2.5 | Groups long Tailwind class lists into readable lines and handles conditional classes. |
-| [Lucide React](https://lucide.dev) | 1.74 | Line icons: sun, mail, palette, cat, store, arrows, heart, droplet, pause/play. |
-| [Font Awesome Brands](https://fontawesome.com) | 7.3 | The LinkedIn and GitHub logos, rendered through a tiny `BrandIcon` component. |
+| [Lucide React](https://lucide.dev) | 1.74 | Line icons: sun, mail, palette, cat, store, arrows, heart, droplet, pause/play, and the resume's document, map pin, globe, award and graduation cap. |
+| [Font Awesome Brands](https://fontawesome.com) | 7.3 | The LinkedIn and GitHub logos (in the contact links and on the resume), rendered through a tiny `BrandIcon` component. |
 | TypeScript | 5.9 | Types for every component and data file. |
 | ESLint + `eslint-config-next` | 9 | Linting, including a **120-character line limit**. |
 
@@ -100,7 +101,8 @@ Built into Next.js and also used:
 src/
 ├── app/
 │   ├── layout.tsx          Fonts, <html>, and site metadata (title, description, social cards)
-│   ├── page.tsx            The page: sky layers, backdrop, and the five sections
+│   ├── page.tsx            The home page: the backdrop and the five sections
+│   ├── resume/page.tsx     The resume page and its own title and description
 │   ├── globals.css         Tailwind import, design tokens, a few utilities, and CSS-only effects
 │   └── *.png / *.jpg       Icons and link-preview images
 └── components/
@@ -109,11 +111,31 @@ src/
     ├── Work/               Work section, ProjectCard, projects (logos, tags, palettes, links)
     ├── Stickers/           Sticker board, stickerData, useFinePointer
     ├── SayHello/           Footer section and the MotionToggle (pause animations)
-    └── shared/             GlassCard, SectionHeading, icons, motion presets, MotionProvider, styles
+    ├── Resume/             Resume layout and resumeData (summary, roles, skills)
+    └── shared/             DesertBackdrop, GlassCard, SectionHeading, icons, motion, MotionProvider, styles
 ```
 
 Copy and data live apart from layout, so text can be edited without touching markup: the About cards in
-`aboutData.tsx`, the projects in `projects.ts`, and the stickers in `stickerData.ts`.
+`aboutData.tsx`, the projects in `projects.ts`, the stickers in `stickerData.ts`, and the resume in
+`resumeData.tsx`.
+
+---
+
+## Resume page
+
+`/resume` turns my PDF resume into a page that matches the rest of the site. "Resume" sits next to GitHub in the
+contact links, in both the hero and the footer.
+
+- **Layout:** two columns on large screens, like the PDF. The left column holds my hand-lettered name, title and
+  contact details, then skills, certification and education. The right column holds the summary and a "Relevant
+  Experience" timeline. On phones the summary and experience come before the skills, so the most important part is
+  read first.
+- **Timeline:** each role is a glass card on a cream rail. Current roles get a glowing coral dot, past roles a hollow
+  one, and the former clearance appears as a coral badge.
+- **Skills:** grouped chips. My core skills (React, Next.js, Tailwind CSS, Figma, Contentful and Motion) are filled
+  cream so they stand out.
+- **Content:** all text lives in `Resume/resumeData.tsx`, so updating the resume means editing data, not markup.
+- **Backdrop:** the same desert scene, darkened from the start so the denser text stays readable.
 
 ---
 
@@ -125,6 +147,7 @@ Copy and data live apart from layout, so text can be edited without touching mar
   and `coral` for focus rings.
 - **Fonts:** `font-display` (Diamond Grotesk) and `font-script` (Caveat).
 - **Hand lettering:** my name in the hero is `public/tia-rexine-name.webp`, rendered by `Hero/NameLettering.tsx`.
+  The resume uses the same artwork at the top of its profile card.
 - **Utilities:**
   - `glass`: the frosted, softly outlined cards.
   - `text-sunset`: the white-to-cream gradient on the section headings.
@@ -146,7 +169,8 @@ Copy and data live apart from layout, so text can be edited without touching mar
 - **Shading:** a gentle overlay improves text contrast. It's baked into a PNG, one for desktop and one for mobile,
   instead of a CSS gradient, which avoids the faint grid pattern Chrome draws over large gradients.
 - **Scroll darkening:** as you scroll, the background darkens slightly using CSS scroll-driven animation, so longer
-  text stays readable.
+  text stays readable. The resume page skips the scroll effect and starts darkened instead.
+- **Shared component:** all of this lives in `shared/DesertBackdrop.tsx`, so both pages use the same scene.
 
 ---
 
