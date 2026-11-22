@@ -26,6 +26,47 @@ compressed and stripped of its metadata (including GPS location) before being ad
 
 ---
 
+## Accessibility
+
+The site is built and tested to meet **WCAG 2.2 Level AA**.
+
+**How it was tested**
+
+- [axe-core](https://github.com/dequelabs/axe-core) against WCAG 2.0, 2.1 and 2.2 A/AA plus best practices, at
+  desktop, tablet and mobile widths: **zero violations**.
+- **Text contrast** measured against the actual pixels behind each text style (the sky and the cards), at three
+  screen sizes: all 23 text styles pass.
+- **Keyboard:** a full walk of all 14 interactive elements, plus checks for zoom, reflow, text spacing and target
+  size.
+
+**What's in place, and the problems it solves**
+
+- **Readable text over a bright sunset.**
+  - **Problem:** light text over a golden sky failed contrast.
+  - **Solution:** the hero sits low over the darker mountain haze instead of the bright middle of the sky, and the
+    mobile overlay is subtly deeper behind the text. No band, box or blur covers the sky.
+  - **Result:** the hero reaches 4.1–8.1:1, depending on the element and screen size.
+- **Screen readers:**
+  - One `h1` and a clean `h2`/`h3` outline, a `main` landmark, a labeled `footer`, and every section labeled by
+    its heading.
+  - My name is hand-lettered artwork, so the `h1` carries the text "Tia Rexine" for screen readers and search engines.
+    The image itself is marked decorative. As a logotype, it's exempt from the images-of-text rule.
+  - Decorative icons and images are hidden. Every meaningful image has alt text, including the link preview.
+  - Links that open a new tab say so, for example "LinkedIn (opens in a new tab)".
+  - Color swatches have text names, so they aren't communicated by color alone.
+- **Keyboard:** every link and button is reachable in a logical order, with a clearly visible coral focus ring (at
+  least 3:1 against its background) and no keyboard traps. "a bit about me" scrolls to the About section without
+  changing the URL.
+- **Touch targets:** all controls are at least 24×24px.
+- **Zoom and reflow:** no sideways scrolling or clipped text at 320px wide, in phone landscape, at 200% zoom, or
+  with increased letter, word and line spacing.
+- **Motion (WCAG 2.2.2):** continuous animation can be paused on the page, "reduce motion" is respected, and nothing
+  flashes.
+- **Dragging (WCAG 2.5.7):** dragging stickers is purely optional. Every image and caption is fully available
+  without it.
+
+---
+
 ## Tech stack
 
 | Package | Version | What it does here |
@@ -151,47 +192,6 @@ The "Things I love" board turns my photos into die-cut stickers with white borde
   - Phones: 2 columns.
 - **Captions** are handwritten. A caption can carry a tiny icon (the droplet after "resident drooler"), and the lamp's
   caption is nudged to sit centered under its base.
-
----
-
-## Accessibility
-
-The site is built and tested to meet **WCAG 2.2 Level AA**.
-
-**How it was tested**
-
-- [axe-core](https://github.com/dequelabs/axe-core) against WCAG 2.0, 2.1 and 2.2 A/AA plus best practices, at
-  desktop, tablet and mobile widths: **zero violations**.
-- **Text contrast** measured against the actual pixels behind each text style (the sky and the cards), at three
-  screen sizes: all 23 text styles pass.
-- **Keyboard:** a full walk of all 14 interactive elements, plus checks for zoom, reflow, text spacing and target
-  size.
-
-**What's in place, and the problems it solves**
-
-- **Readable text over a bright sunset.**
-  - **Problem:** light text over a golden sky failed contrast.
-  - **Solution:** the hero sits low over the darker mountain haze instead of the bright middle of the sky, and the
-    mobile overlay is subtly deeper behind the text. No band, box or blur covers the sky.
-  - **Result:** the hero reaches 4.1–8.1:1, depending on the element and screen size.
-- **Screen readers:**
-  - One `h1` and a clean `h2`/`h3` outline, a `main` landmark, a labeled `footer`, and every section labeled by
-    its heading.
-  - My name is hand-lettered artwork, so the `h1` carries the text "Tia Rexine" for screen readers and search engines.
-    The image itself is marked decorative. As a logotype, it's exempt from the images-of-text rule.
-  - Decorative icons and images are hidden. Every meaningful image has alt text, including the link preview.
-  - Links that open a new tab say so, for example "LinkedIn (opens in a new tab)".
-  - Color swatches have text names, so they aren't communicated by color alone.
-- **Keyboard:** every link and button is reachable in a logical order, with a clearly visible coral focus ring (at
-  least 3:1 against its background) and no keyboard traps. "a bit about me" scrolls to the About section without
-  changing the URL.
-- **Touch targets:** all controls are at least 24×24px.
-- **Zoom and reflow:** no sideways scrolling or clipped text at 320px wide, in phone landscape, at 200% zoom, or
-  with increased letter, word and line spacing.
-- **Motion (WCAG 2.2.2):** continuous animation can be paused on the page, "reduce motion" is respected, and nothing
-  flashes.
-- **Dragging (WCAG 2.5.7):** dragging stickers is purely optional. Every image and caption is fully available
-  without it.
 
 ---
 

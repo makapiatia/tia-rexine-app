@@ -20,7 +20,7 @@ export function SayHello() {
       {...inView}
     >
       <TrexBadge placement="footer" />
-      <SectionHeading kicker="don't be a stranger" title="Say hello" id="hello-title" />
+      <SectionHeading kicker="drop me a line" title="Say hello" id="hello-title" />
       <motion.p className={sectionIntro} variants={rise}>
         Building something, looking for a new team member, or just want to swap wildlife sightings?
         Send me a note. I reply faster than a roadrunner.
