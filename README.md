@@ -46,9 +46,10 @@ Built into Next.js and also used:
 - **`next/font`** loads three typefaces with no layout shift: **Geist** (body text), **Caveat** (the handwritten
   notes) and **Diamond Grotesk** (headings and my name, self-hosted from `public/fonts`).
 - **`next/image`** serves responsive, optimized images for the logos, the T-rex badge and the stickers.
-- **Metadata files** in `src/app` (`icon.png`, `apple-icon.png`, `favicon.ico`, `opengraph-image.jpg`,
-  `twitter-image.jpg` and their `.alt.txt` files) give the site its icons and its link preview, which is a capture
-  of the real hero.
+- **Metadata files** in `src/app` (`icon.png`, `apple-icon.png`, `favicon.ico`) give the site its icons.
+- **Link preview cards** (`opengraph-image.tsx` and `twitter-image.tsx`) are generated in code with `ImageResponse`
+  from `next/og`, using `src/lib/socialCard.tsx`. They compose the sunset backdrop, my hand-lettered name, a tagline
+  and the T-rex badge from the assets in `assets/og/`, so they're a designed card rather than a screenshot.
 
 ---
 
