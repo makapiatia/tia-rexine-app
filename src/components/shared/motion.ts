@@ -23,17 +23,6 @@ export const write: Variants = {
   show: { clipPath: "inset(-20% 0% -20% 0)", transition: { duration: 1.2, ease: "easeInOut" } },
 };
 
-export const letter: Variants = {
-  hidden: { opacity: 0, y: 36, rotate: 8, filter: "blur(6px)" },
-  show: {
-    opacity: 1,
-    y: 0,
-    rotate: 0,
-    filter: "blur(0px)",
-    transition: { type: "spring", stiffness: 260, damping: 18 },
-  },
-};
-
 export const chip: Variants = {
   hidden: { opacity: 0, scale: 0.4, y: 10 },
   show: { opacity: 1, scale: 1, y: 0, transition: { type: "spring", stiffness: 380, damping: 16 } },

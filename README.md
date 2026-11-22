@@ -12,6 +12,8 @@ photo stickers, and a way to say hello.
 
 - **Every photo on this site was taken by me.** That includes the mountain backdrop, the sunset skies the drifting
   clouds come from, my pottery, my lamp, my cats and the desert neighbors on the sticker board.
+- **My name in the hero is my own hand lettering**, drawn with marker on paper, photographed, then traced and recolored
+  to match the site (cream fill, dusk-plum outline, see-through counters).
 - **Every logo was designed by me, without the use of AI.** That includes the T-rex badge used for the site icon, the
   Rexine Spa Care logo and the Free Space Therapy logo. Each one started as hand sketches and brainstorming and was
   then executed in Adobe Illustrator.
@@ -60,7 +62,7 @@ src/
 │   ├── globals.css         Tailwind import, design tokens, a few utilities, and CSS-only effects
 │   └── *.png / *.jpg       Icons and link-preview images
 └── components/
-    ├── Hero/               Hero, AnimatedName, ContactLinks, TrexBadge
+    ├── Hero/               Hero, NameLettering, ContactLinks, TrexBadge
     ├── About/              About section, AboutCard, aboutData (all the card copy)
     ├── Work/               Work section, ProjectCard, projects (logos, tags, palettes, links)
     ├── Stickers/           Sticker board, stickerData, useFinePointer
@@ -80,9 +82,10 @@ Copy and data live apart from layout, so text can be edited without touching mar
 - **Colors:** `cream` (#fde7c2) for accents, `sand` (#f3f0e8) for text, `ink` and `night` for the dark background,
   and `coral` for focus rings.
 - **Fonts:** `font-display` (Diamond Grotesk) and `font-script` (Caveat).
+- **Hand lettering:** my name in the hero is `public/name-lettering.webp`, rendered by `Hero/NameLettering.tsx`.
 - **Utilities:**
   - `glass`: the frosted, softly outlined cards.
-  - `text-sunset`: the white-to-cream gradient on my name and the section headings.
+  - `text-sunset`: the white-to-cream gradient on the section headings.
   - `dot-list`: the cream lists separated by dots (desert animals and tech tags), styled so they don't look clickable.
 - **Breakpoints:**
   - `md:` (768px) for desktop.
@@ -109,8 +112,8 @@ Copy and data live apart from layout, so text can be edited without touching mar
 
 All motion is built with Motion. The shared presets live in `components/shared/motion.ts`.
 
-- **Hero entrance:** the greeting "writes" itself in (a left-to-right clip reveal), then **"Tia Rexine" springs up
-  letter by letter**, then the description and links rise in.
+- **Hero entrance:** the greeting and my hand-lettered name "write" themselves in (a left-to-right clip reveal), then
+  the description and links rise in.
 - **Section entrances:** each section rises into view once as you scroll. Cards spring in with a slight scale and
   blur, and the desert animals pop in one at a time.
 - **Small living details** (CSS keyframes):
@@ -173,7 +176,8 @@ The site is built and tested to meet **WCAG 2.2 Level AA**.
 - **Screen readers:**
   - One `h1` and a clean `h2`/`h3` outline, a `main` landmark, a labeled `footer`, and every section labeled by
     its heading.
-  - My name is animated letter by letter but announced as one word through an `aria-label`.
+  - My name is hand-lettered artwork, so the `h1` carries the text "Tia Rexine" for screen readers and search engines.
+    The image itself is marked decorative. As a logotype, it's exempt from the images-of-text rule.
   - Decorative icons and images are hidden. Every meaningful image has alt text, including the link preview.
   - Links that open a new tab say so, for example "LinkedIn (opens in a new tab)".
   - Color swatches have text names, so they aren't communicated by color alone.

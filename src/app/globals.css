@@ -138,16 +138,22 @@
 
   .sky-far {
     top: -12vh;
+    top: -12lvh;
     height: 74vh;
+    height: 74lvh;
     width: calc(74vh * 3600 / 840 * 2);
+    width: calc(74lvh * 3600 / 840 * 2);
     background-image: url("/sky/clouds-far.webp");
     animation-duration: 260s;
   }
 
   .sky-near {
     top: -8vh;
+    top: -8lvh;
     height: 52vh;
+    height: 52lvh;
     width: calc(52vh * 3600 / 552 * 2);
+    width: calc(52lvh * 3600 / 552 * 2);
     background-image: url("/sky/clouds-near.webp");
     opacity: 0.55;
     animation-duration: 150s;
@@ -161,7 +167,7 @@
     .scroll-scrim {
       animation: scrim-in linear both;
       animation-timeline: scroll(root);
-      animation-range: 0 90vh;
+      animation-range: 0 90lvh;
     }
   }
 

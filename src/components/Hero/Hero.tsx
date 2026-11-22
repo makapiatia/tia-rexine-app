@@ -6,7 +6,7 @@ import { motion, type Variants } from "motion/react";
 import { Cactus } from "@/components/shared/icons";
 import { group, rise, write } from "@/components/shared/motion";
 import { handNote } from "@/components/shared/styles";
-import { AnimatedName } from "./AnimatedName";
+import { NameLettering } from "./NameLettering";
 import { ContactLinks } from "./ContactLinks";
 import { TrexBadge } from "./TrexBadge";
 
@@ -42,11 +42,11 @@ export function Hero() {
           hello from the Sonoran desert
           <Cactus className="origin-[50%_90%] animate-sway motion-reduce:animate-none" />
         </motion.p>
-        <AnimatedName text="Tia Rexine" />
+        <NameLettering />
         <motion.p
           className={classNames(
             "mb-1 max-w-110 leading-[1.4] text-white [text-shadow:0_1px_8px_rgb(0_0_0/35%)]",
-            "-mt-1.25 text-[13.5px] md:-mt-2.25 md:text-[15px]",
+            "mt-0.5 text-[13.5px] md:text-[15px]",
           )}
           variants={rise}
         >
