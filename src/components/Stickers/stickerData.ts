@@ -13,6 +13,7 @@ export type Sticker = {
   alt: string;
   label: string;
   labelIcon?: "droplet";
+  captionShift?: number;
   x: number;
   y: number;
   width: number;
@@ -43,7 +44,7 @@ export const stickers: Sticker[] = [
   {
     image: potteryShelf,
     alt: "A shelf of glazed ceramic bowls and cups",
-    label: "cups for days",
+    label: "is there such a thing as too many cups?",
     x: 52,
     y: 8,
     width: 30,
@@ -52,11 +53,12 @@ export const stickers: Sticker[] = [
   {
     image: cobaltVase,
     alt: "Cobalt blue ceramic lamp base with a paper shade",
-    label: "lighting is a passion",
+    label: "lighting is\nmy passion",
+    captionShift: -4,
     x: 85,
     y: 0,
     width: 13,
-    rotate: 6,
+    rotate: 2,
     mobileWidth: 52,
   },
   {

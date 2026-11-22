@@ -1,6 +1,7 @@
+import classNames from "classnames";
 import type { ComponentType, ReactNode, SVGProps } from "react";
 import { Cat, CodeXml, Palette, Store, Sunset } from "lucide-react";
-import { Burro, SmileyFace } from "@/components/shared/icons";
+import { Burro } from "@/components/shared/icons";
 
 type Icon = ComponentType<SVGProps<SVGSVGElement>>;
 
@@ -23,9 +24,12 @@ export const aboutBlocks: AboutBlock[] = [
         I build web experiences that look beautiful and feel effortless, and I&apos;m happiest where
         design and engineering meet. With almost a decade&apos;s worth of experience, I&apos;m building
         a headless ecommerce storefront in React, Next.js and TypeScript, turning Figma designs into
-        polished, accessible pages. Our team was even featured in{" "}
+        polished, accessible pages. Our team&apos;s design-to-development workflow was even featured in{" "}
         <a
-          className="inline-link"
+          className={classNames(
+            "text-cream underline decoration-cream/45 underline-offset-[3px]",
+            "transition-[text-decoration-color] duration-200 hover:decoration-cream",
+          )}
           href="https://www.figma.com/customers/ruggable-reimagines-design-to-development-10x-faster-with-figma/"
           target="_blank"
           rel="noreferrer"
@@ -33,7 +37,7 @@ export const aboutBlocks: AboutBlock[] = [
           Figma&apos;s customer story
           <span className="sr-only"> (opens in a new tab)</span>
         </a>
-        .
+        . I also hold a UX Certificate from the Nielsen Norman Group.
       </>,
     ],
   },
@@ -42,11 +46,9 @@ export const aboutBlocks: AboutBlock[] = [
     title: "Small business owner",
     body: [
       <>
-        In my off hours and on weekends I run Rexine Spa Care. And yes, that&apos;s a Tyrannosaurus
-        rex in a hot{" "}
-        <span className="nowrap">
-          tub. <SmileyFace className="inline-icon" aria-hidden={false} aria-label="smiley face" role="img" />
-        </span>
+        My husband and I run Rexine Spa Care together. He&apos;s our technician, and it&apos;s his
+        full-time job. I designed our logo and built the website, and in my off hours I help with scheduling,
+        invoices, inventory and accounting.
       </>,
     ],
     link: {
@@ -69,13 +71,13 @@ export const aboutBlocks: AboutBlock[] = [
   },
   {
     icons: [Palette, Cat],
-    title: "Painter, ceramicist & cat mom",
+    title: "Artist & cat mom",
     body: [
       "When I log off, I might sketch, pick up a paintbrush or wedge a lump of clay. I'm also an amateur " +
       "interior decorator, always finding little ways to make my space feel more like home.",
       "Three cats, three personalities. One is pure energy: he runs laps on his cat wheel and even " +
       "skateboards. One gets the zoomies at night but is a cuddle bug around the clock. And one is our " +
-      "peacekeeper, the missing link who keeps the whole crew together. Every painting, pot and pull " +
+      "peacekeeper, the missing link who keeps the whole crew together. Every art project and pull " +
       "request still has to pass their strict quality check.",
     ],
   },

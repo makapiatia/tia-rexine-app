@@ -1,5 +1,203 @@
 @import "tailwindcss";
 
+@custom-variant short (@media (max-height: 700px) and (min-width: 768px));
+@custom-variant fine (@media (pointer: fine) and (min-width: 768px));
+@custom-variant collage (@media (min-width: 900px));
+
 @theme inline {
   --font-sans: var(--font-geist-sans);
+  --font-display: var(--font-diamond-grotesk);
+  --font-script: var(--font-hand);
+}
+
+@theme {
+  --color-cream: #fde7c2;
+  --color-sand: #f3f0e8;
+  --color-ink: #0b1114;
+  --color-night: #070e11;
+  --color-coral: #f08061;
+
+  --animate-spin-slow: spin 24s linear infinite;
+  --animate-sway: sway 4s ease-in-out infinite;
+  --animate-beat: beat 1.6s ease-in-out infinite;
+  --animate-bob: bob 3.2s ease-in-out infinite;
+  --animate-nudge: nudge 2.4s ease-in-out infinite;
+  --animate-wiggle: wiggle 600ms ease;
+
+  @keyframes sway {
+    50% { transform: rotate(7deg); }
+  }
+
+  @keyframes beat {
+    15% { transform: scale(1.25); }
+    30% { transform: scale(1); }
+    45% { transform: scale(1.18); }
+    60% { transform: scale(1); }
+  }
+
+  @keyframes bob {
+    50% { transform: translateY(-7px) rotate(-3deg); }
+  }
+
+  @keyframes nudge {
+    50% { transform: translateY(5px); }
+  }
+
+  @keyframes wiggle {
+    25% { transform: rotate(-14deg) scale(1.1); }
+    55% { transform: rotate(10deg) scale(1.1); }
+    80% { transform: rotate(-4deg); }
+  }
+}
+
+@utility glass {
+  border: 1px solid --alpha(var(--color-sand) / 32%);
+  border-radius: 16px;
+  background: --alpha(var(--color-night) / 22%);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 6px --alpha(var(--color-sand) / 18%), inset 0 0 6px --alpha(var(--color-sand) / 12%);
+}
+
+@utility text-sunset {
+  background-image: linear-gradient(180deg, #ffffff 35%, #fff7ec 68%, #f9ebd6 92%);
+  background-clip: text;
+  color: transparent;
+}
+
+@utility dot-list {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 2px;
+
+  & > li:not(:last-child)::after {
+    content: "·";
+    margin: 0 9px;
+    color: --alpha(var(--color-cream) / 55%);
+    font-weight: 400;
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    cursor: url("/cursors/hawk.png") 22 14, auto;
+    cursor: image-set(url("/cursors/hawk.png") 1x, url("/cursors/hawk@2x.png") 2x) 22 14, auto;
+  }
+
+  a,
+  button,
+  [role="button"] {
+    cursor: url("/cursors/hawk-dive.png") 18 15, pointer;
+    cursor: image-set(url("/cursors/hawk-dive.png") 1x, url("/cursors/hawk-dive@2x.png") 2x) 18 15, pointer;
+  }
+
+  body {
+    background: var(--color-ink);
+    color: var(--color-sand);
+    font-family: var(--font-geist-sans), sans-serif;
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--color-coral);
+    outline-offset: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      scroll-behavior: auto !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  html[data-paused] *,
+  html[data-paused] *::before,
+  html[data-paused] *::after {
+    animation-play-state: paused !important;
+  }
+}
+
+@layer components {
+  .sky {
+    mask-image: linear-gradient(to bottom, #000 0%, #000 14%, rgb(0 0 0 / 45%) 30%, transparent 46%);
+  }
+
+  .sky-layer {
+    position: absolute;
+    left: 0;
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+    will-change: transform;
+    animation: sky-drift linear infinite;
+    mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 72%, transparent);
+  }
+
+  .sky-far {
+    top: -12vh;
+    height: 74vh;
+    width: calc(74vh * 3600 / 840 * 2);
+    background-image: url("/sky/clouds-far.webp");
+    animation-duration: 260s;
+  }
+
+  .sky-near {
+    top: -8vh;
+    height: 52vh;
+    width: calc(52vh * 3600 / 552 * 2);
+    background-image: url("/sky/clouds-near.webp");
+    opacity: 0.55;
+    animation-duration: 150s;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sky-layer { animation: none; }
+  }
+
+  @supports (animation-timeline: scroll()) {
+    .scroll-scrim {
+      animation: scrim-in linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 90vh;
+    }
+  }
+
+  .glare-card::after {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    content: "";
+    pointer-events: none;
+    background: radial-gradient(
+      circle at var(--glare-x, 50%) var(--glare-y, 0%),
+      rgb(247 201 92 / 11%),
+      transparent 55%
+    );
+    opacity: 0;
+    transition: opacity 300ms ease;
+  }
+
+  .glare-card:hover::after { opacity: 1; }
+
+  .sticker {
+    cursor: url("/cursors/grab.png") 13 1, grab;
+    cursor: image-set(url("/cursors/grab.png") 1x, url("/cursors/grab@2x.png") 2x) 13 1, grab;
+  }
+
+  .sticker img { -webkit-user-drag: none; }
+
+  @media (max-width: 767px) {
+    .sticker { cursor: inherit; }
+  }
+}
+
+@keyframes sky-drift {
+  to { transform: translateX(-50%); }
+}
+
+@keyframes scrim-in {
+  to { opacity: 1; }
 }

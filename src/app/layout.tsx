@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
+import classNames from "classnames";
 import localFont from "next/font/local";
 import { Caveat, Geist } from "next/font/google";
 import "./globals.css";
-import "./site.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,8 +24,8 @@ const diamondGrotesk = localFont({
 
 const title = "Tia Rexine | Full Stack Software Engineer";
 const description =
-  "Full stack software engineer in the Sonoran desert, building calm, easy-to-use web apps. Also a " +
-  "painter, ceramicist, cat mom and small business owner.";
+  "Full stack software engineer in the Sonoran desert who designs and builds for the web. Also an " +
+  "artist, cat mom and small business owner.";
 
 export const metadata: Metadata = {
   title,
@@ -49,7 +49,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${caveat.variable} ${diamondGrotesk.variable} h-full antialiased`}
+      className={classNames(geistSans.variable, caveat.variable, diamondGrotesk.variable, "h-full antialiased")}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

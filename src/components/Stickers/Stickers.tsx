@@ -1,13 +1,28 @@
 "use client";
 
+import classNames from "classnames";
 import Image from "next/image";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { Droplet } from "lucide-react";
 import { motion, type PanInfo, type Variants } from "motion/react";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { group, inView, write } from "@/components/shared/motion";
+import { handNoteText, pageSection, sectionPadding } from "@/components/shared/styles";
 import { stickers } from "./stickerData";
 import { useFinePointer } from "./useFinePointer";
+
+const stickerClass = classNames(
+  "sticker relative w-(--mw,100%) justify-self-center touch-pan-y",
+  "filter-[drop-shadow(0_10px_18px_rgb(0_0_0/35%))_drop-shadow(0_2px_3px_rgb(0_0_0/30%))]",
+  "collage:absolute collage:top-(--y) collage:left-(--x) collage:w-(--w) collage:justify-self-auto",
+);
+
+const captionClass = classNames(
+  handNoteText,
+  "mt-0.5 block text-center leading-[1.05] text-balance",
+  "text-[18px] whitespace-normal",
+  "collage:mx-[-35%] collage:w-[170%] collage:text-[21px] collage:whitespace-pre-line",
+);
 
 const GRABBING_CURSOR = 'url("/cursors/grabbing.png") 13 1, grabbing';
 
@@ -34,7 +49,7 @@ export function Stickers() {
   const [order, setOrder] = useState(() => stickers.map((_, index) => index));
 
   useEffect(() => {
-    pageRef.current = boardRef.current?.closest(".dark-shell") ?? null;
+    pageRef.current = boardRef.current?.closest<HTMLElement>("#top") ?? null;
   }, []);
 
   const autoScroll = (_event: PointerEvent | MouseEvent | TouchEvent, info: PanInfo) => {
@@ -47,18 +62,34 @@ export function Stickers() {
   const bringToFront = (index: number) => setOrder((current) => [...current.filter((i) => i !== index), index]);
 
   return (
-    <motion.section className="page-section" aria-labelledby="stickers-title" variants={group} {...inView}>
+    <motion.section
+      className={classNames(pageSection, sectionPadding)}
+      aria-labelledby="stickers-title"
+      variants={group}
+      {...inView}
+    >
       <SectionHeading kicker="a few of my favorites" title="Things I love" id="stickers-title">
-        <motion.p className="hand-note sticker-hint" variants={write}>
+        <motion.p
+          className={classNames(handNoteText, "hidden items-center text-[19px] opacity-80 fine:inline-flex")}
+          variants={write}
+        >
           (go ahead, drag them anywhere)
         </motion.p>
       </SectionHeading>
 
-      <motion.div className="sticker-board" ref={boardRef} variants={board}>
+      <motion.div
+        className={classNames(
+          "relative w-full",
+          "grid grid-cols-2 items-center gap-x-4.5 gap-y-5.5",
+          "md:grid-cols-4 collage:block collage:aspect-16/10",
+        )}
+        ref={boardRef}
+        variants={board}
+      >
         {stickers.map((sticker, index) => (
           <motion.figure
             key={sticker.label}
-            className="sticker"
+            className={stickerClass}
             style={
               {
                 "--x": `${sticker.x}%`,
@@ -79,10 +110,21 @@ export function Stickers() {
             whileHover={{ scale: 1.05, rotate: sticker.rotate + 3 }}
             whileDrag={{ scale: 1.1, rotate: 0, cursor: GRABBING_CURSOR }}
           >
-            <Image src={sticker.image} alt={sticker.alt} sizes="(max-width: 767px) 45vw, 280px" draggable={false} />
-            <figcaption className="hand-note">
+            <Image
+              src={sticker.image}
+              alt={sticker.alt}
+              sizes="(max-width: 767px) 45vw, 280px"
+              draggable={false}
+              className="block h-auto w-full select-none"
+            />
+            <figcaption
+              className={captionClass}
+              style={sticker.captionShift ? { translate: `${sticker.captionShift}% 0` } : undefined}
+            >
               {sticker.label}
-              {sticker.labelIcon === "droplet" ? <Droplet aria-hidden="true" className="caption-icon" /> : null}
+              {sticker.labelIcon === "droplet" ? (
+                <Droplet aria-hidden="true" className="ml-1 inline-block size-[0.55em] align-baseline fill-cream/35" />
+              ) : null}
             </figcaption>
           </motion.figure>
         ))}

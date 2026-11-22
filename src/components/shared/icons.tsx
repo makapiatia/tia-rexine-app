@@ -26,10 +26,9 @@ const lineIcon: SVGProps<SVGSVGElement> = {
 export function Cactus(props: SVGProps<SVGSVGElement>) {
   return (
     <svg {...lineIcon} {...props}>
-      <path d="M10 21V5a2 2 0 0 1 4 0v16" />
-      <path d="M10 14H7.5A1.5 1.5 0 0 1 6 12.5V9a1 1 0 0 1 2 0v3h2" />
-      <path d="M14 12h2.5a1.5 1.5 0 0 0 1.5-1.5V7a1 1 0 0 0-2 0v3h-2" />
-      <path d="M4 21h16" />
+      <path d="M12 3.2V21" strokeWidth={4.4} />
+      <path d="M12 15.2H9.2Q7 15.2 7 13V9" strokeWidth={3.2} />
+      <path d="M12 12.4H14.8Q17 12.4 17 10.2V6.6" strokeWidth={3.2} />
     </svg>
   );
 }
@@ -48,16 +47,6 @@ export function Burro(props: SVGProps<SVGSVGElement>) {
       <path d="M11 16v5M13.2 16v5M16.8 16v5M19 15v6" />
       <path d="M20 11.5c.9.6 1.3 1.9 1.3 3.5" />
       <circle cx="6.2" cy="9" r="0.5" fill="currentColor" stroke="none" />
-    </svg>
-  );
-}
-
-export function SmileyFace(props: SVGProps<SVGSVGElement>) {
-  return (
-    <svg {...lineIcon} strokeWidth={1.8} {...props}>
-      <path d="M5 7.5c1-2 3.4-2 4.4 0" />
-      <path d="M14.6 7.5c1-2 3.4-2 4.4 0" />
-      <path d="M6.5 15c1.4 2.4 3.3 3.6 5.5 3.6s4.1-1.2 5.5-3.6" />
     </svg>
   );
 }

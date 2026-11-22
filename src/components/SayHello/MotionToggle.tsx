@@ -1,7 +1,9 @@
 "use client";
 
+import classNames from "classnames";
 import { useEffect, useSyncExternalStore } from "react";
 import { Pause, Play } from "lucide-react";
+import { pill } from "@/components/shared/styles";
 
 const STORAGE_KEY = "animations-paused";
 const listeners = new Set<() => void>();
@@ -38,7 +40,12 @@ export function MotionToggle() {
   }, [paused]);
 
   return (
-    <button type="button" className="motion-toggle" aria-pressed={paused} onClick={() => setPaused(!paused)}>
+    <button
+      type="button"
+      className={classNames(pill, "py-1.75 text-[13px] focus-visible:outline-offset-2 [&_svg]:size-3.5")}
+      aria-pressed={paused}
+      onClick={() => setPaused(!paused)}
+    >
       {paused ? <Play aria-hidden="true" /> : <Pause aria-hidden="true" />}
       {paused ? "Play animations" : "Pause animations"}
     </button>
