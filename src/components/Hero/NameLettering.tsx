@@ -8,16 +8,16 @@ export function NameLettering() {
   return (
     <motion.h1
       id="hero-title"
-      className="my-1 w-65 drop-shadow-[0_3px_12px_rgba(46,14,34,0.45)] md:w-90 short:w-72"
+      className="my-1 w-75 md:w-110 short:w-90"
       variants={write}
     >
       <Image
-        src="/name-lettering.webp"
+        src="/tia-rexine-name.webp"
         alt=""
-        width={1200}
-        height={456}
+        width={1691}
+        height={420}
         priority
-        sizes="(max-width: 767px) 260px, 360px"
+        sizes="(max-width: 767px) 300px, 440px"
         className="block h-auto w-full"
       />
       <span className="sr-only">Tia Rexine</span>

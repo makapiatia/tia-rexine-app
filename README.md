@@ -82,7 +82,7 @@ Copy and data live apart from layout, so text can be edited without touching mar
 - **Colors:** `cream` (#fde7c2) for accents, `sand` (#f3f0e8) for text, `ink` and `night` for the dark background,
   and `coral` for focus rings.
 - **Fonts:** `font-display` (Diamond Grotesk) and `font-script` (Caveat).
-- **Hand lettering:** my name in the hero is `public/name-lettering.webp`, rendered by `Hero/NameLettering.tsx`.
+- **Hand lettering:** my name in the hero is `public/tia-rexine-name.webp`, rendered by `Hero/NameLettering.tsx`.
 - **Utilities:**
   - `glass`: the frosted, softly outlined cards.
   - `text-sunset`: the white-to-cream gradient on the section headings.
