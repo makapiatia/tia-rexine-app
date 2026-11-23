@@ -16,8 +16,8 @@ skills in the same desert style.
 - **My name in the hero is my own hand lettering**, drawn with marker on paper, photographed, then traced and recolored
   to match the site (cream fill, dusk-plum outline, see-through counters).
 - **Every logo was designed by me, without the use of AI.** That includes the T-rex badge used for the site icon, the
-  Rexine Spa Care logo and the Free Space Therapy logo. Each one started as hand sketches and brainstorming and was
-  then executed in Adobe Illustrator.
+  Rexine Spa Care logo and the Free Space Psychotherapy logo. Each one started as hand sketches and brainstorming and
+  was then executed in Adobe Illustrator.
 - **Built with help from Claude.** I used Claude, Anthropic's AI assistant, to help with many site details: code,
   animations, accessibility testing, layout and copy edits. The photos and logos are entirely my own.
 
@@ -37,7 +37,7 @@ The site is built and tested to meet **WCAG 2.2 Level AA**.
   both the home page and the resume, at desktop, tablet, mobile and 320px widths: **zero violations**.
 - **Text contrast** measured against the actual pixels behind each text style (the sky and the cards), at three
   screen sizes: all 23 text styles on the home page and all 39 on the resume pass.
-- **Keyboard:** a full walk of every interactive element (16 on the home page, 13 on the resume), plus checks for
+- **Keyboard:** a full walk of every interactive element (17 on the home page, 14 on the resume), plus checks for
   zoom, reflow, text spacing and target size.
 
 **What's in place, and the problems it solves**
@@ -132,8 +132,8 @@ contact links, in both the hero and the footer.
   read first.
 - **Timeline:** each role is a glass card on a cream rail. Current roles get a glowing coral dot, past roles a hollow
   one, and the former clearance appears as a coral badge.
-- **Skills:** grouped chips. My core skills (React, Next.js, Tailwind CSS, Figma, Contentful and Motion) are filled
-  cream so they stand out.
+- **Skills:** grouped chips. My core skills (React, Next.js, Tailwind CSS, Figma and Contentful) are filled cream so
+  they stand out.
 - **Content:** all text lives in `Resume/resumeData.tsx`, so updating the resume means editing data, not markup.
 - **Backdrop:** the same desert scene, darkened from the start so the denser text stays readable.
 
@@ -189,6 +189,8 @@ All motion is built with Motion. The shared presets live in `components/shared/m
   - the beating heart after "even the tarantulas"
   - the nudging arrow under "a bit about me"
   - About-card icons that wiggle on hover
+- **Back to top:** the T-rex badge in the footer is a link to the top of the home page. On the home page it glides
+  back up (or jumps, with "reduce motion" on), and from the resume it opens the home page.
 - **Hover:**
   - Cards show a warm glare that follows the cursor (a radial gradient positioned with CSS variables).
   - Project and Rexine logos grow slightly.
@@ -250,4 +252,5 @@ The site deploys to [Vercel](https://vercel.com) with the default Next.js settin
 ## Projects featured
 
 - [Rexine Spa Care](https://www.rexinespacare.com/) ([source](https://github.com/makapiatia/rexine-spa-care))
-- [Free Space Therapy](https://www.freespace-therapy.com/) ([source](https://github.com/makapiatia/freespace-therapy))
+- [Free Space Psychotherapy](https://www.freespace-therapy.com/)
+  ([source](https://github.com/makapiatia/freespace-therapy))

@@ -35,7 +35,7 @@ export const projects: Project[] = [
     ],
   },
   {
-    name: "Free Space Therapy",
+    name: "Free Space Psychotherapy",
     url: "https://www.freespace-therapy.com/",
     domain: "freespace-therapy.com",
     github: "https://github.com/makapiatia/freespace-therapy",
@@ -43,11 +43,12 @@ export const projects: Project[] = [
       src: "/free-space-logo.svg",
       width: 180,
       height: 180,
-      alt: "Free Space Therapy logo",
+      alt: "Free Space Psychotherapy logo",
     },
     description:
-      "The client wanted a calm, straightforward site with no motion, so warm, grounding colors set the " +
-      "mood instead. A Contentful model lets her update the copy and design on her own.",
+      "A welcoming home for a New Jersey psychotherapy practice. " +
+      "Warm colors and a calm, simple layout help visitors feel at ease. " +
+      "Contentful lets the therapist update the copy and design on her own.",
     tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Contentful", "Logo design"],
     palette: [
       { name: "Sage", hex: "#5a9376" },

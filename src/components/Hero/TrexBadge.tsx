@@ -10,7 +10,7 @@ export function TrexBadge({ placement }: { placement: "hero" | "footer" }) {
     <motion.div
       className={classNames("drop-shadow-[0_2px_10px_rgba(0,0,0,0.35)]", {
         "mb-1.5 w-13.5 md:w-17": placement === "hero",
-        "-mb-1 w-24": placement === "footer",
+        "-mb-1 w-18 md:w-24": placement === "footer",
       })}
       variants={trexPop}
       whileHover={{ rotate: [0, -10, 8, -6, 0], transition: { duration: 0.6 } }}

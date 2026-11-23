@@ -23,11 +23,11 @@ const em = (text: string) => <strong className="font-semibold text-cream">{text}
 export const summary: ReactNode = (
   <>
     Software engineer with {em("almost a decade")} of experience, focused on{" "}
-    {em("React, Next.js and Tailwind CSS")} for headless ecommerce. At Ruggable I build the storefront and help
-    shape its {em("Contentful")} content models, working hand in hand with UX to turn {em("Figma")} designs into
-    fast, accessible, beautiful pages. I bring a full stack background in Java and Kotlin microservices from
+    {em("React, Next.js and Tailwind CSS")} for headless ecommerce. My{" "}
+    {em("Nielsen Norman Group UX Certificate")} guides how I work at Ruggable, where I build the storefront, help
+    shape its {em("Contentful")} content models and partner with UX to turn {em("Figma")} designs into fast,
+    accessible, beautiful pages. I bring a full stack background in Java and Kotlin microservices from
     General Dynamics, and I co-own Rexine Spa Care, whose website I built and maintain.
-    I also hold a {em("Nielsen Norman Group UX Certificate")}.
   </>
 );
 
@@ -59,10 +59,10 @@ export const roles: Role[] = [
     location: "Greater Phoenix Area, AZ",
     current: true,
     bullets: [
-      "Co-founded and run Rexine Spa Care with my husband alongside my full-time engineering role.",
-      "Manage day-to-day operations, including logistics, scheduling and accounting.",
-      "Designed, built and maintain the company website end to end, from layout and content to " +
-        "hosting and ongoing updates.",
+      "Co-own Rexine Spa Care with my husband, our technician, who runs it as his full-time job.",
+      "Designed our logo, and designed, built and maintain the company website end to end, from layout and " +
+        "content to hosting and ongoing updates.",
+      "Help with scheduling, invoices, inventory and accounting in my off hours.",
       "Bring a business owner's view of customer experience, conversion and content to my front end work.",
     ],
   },
@@ -100,7 +100,7 @@ export const roles: Role[] = [
   },
 ];
 
-export const highlightedSkills = new Set(["React", "Next.js", "Tailwind CSS", "Figma", "Contentful", "Motion"]);
+export const highlightedSkills = new Set(["React", "Next.js", "Tailwind CSS", "Figma", "Contentful"]);
 
 export const skillGroups: SkillGroup[] = [
   { label: "Front end", skills: ["React", "Next.js", "TypeScript", "JavaScript", "HTML5", "CSS3"] },

@@ -70,7 +70,7 @@ export function Resume() {
       >
         <GlassCard className="grid gap-2.5 p-5 text-left md:p-7">
           <motion.p className={kicker} variants={write}>
-            in a nutshell
+            the highlights
           </motion.p>
           <h2 className={heading}>Summary</h2>
           <p className={classNames(cardText, "mt-1 md:text-[15px] md:leading-[1.75]")}>{summary}</p>
@@ -179,12 +179,12 @@ function Details() {
       </div>
 
       <Divider label="Certification" />
-      <Credential icon={Award} title="UX Certificate" detail="Nielsen Norman Group" />
+      <Credential icon={Award} title="UX Certificate" detail="Nielsen Norman Group" note="UXC# 1045944" />
 
       <Divider label="Education" />
       <Credential
         icon={GraduationCap}
-        title="B.S., Computer Science"
+        title="Bachelor's in Computer Science"
         detail="Pace University, New York, NY · 2016"
         note="Minors in Art and Information Technology"
       />
